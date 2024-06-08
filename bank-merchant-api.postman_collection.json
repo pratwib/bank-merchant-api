@@ -1,0 +1,242 @@
+{
+	"info": {
+		"_postman_id": "a69d336d-5f8c-4290-970c-0e01fe365da2",
+		"name": "bank-merchant-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26627741"
+	},
+	"item": [
+		{
+			"name": "customer",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Customer 1\",\r\n    \"email\":\"customer@gmail.com\",\r\n    \"password\":\"customer1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_PATH}}/auth/register",
+							"host": [
+								"{{URL_PATH}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"customer@gmail.com\",\r\n    \"password\": \"customer1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_PATH}}/auth/login",
+							"host": [
+								"{{URL_PATH}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Balance",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lcklEIjoiM2Y0NTNjNDEtY2YwZi00ZjZlLTgxYTgtNjI0NTgyOTU0YmNmIiwiZXhwIjoxNzE4MTIwMTc4fQ.kMsvQHw4LVR0Zo0b3s9mkNhtSi3bOI--FBnKI_a2eIU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customer_id\": \"3f453c41-cf0f-4f6e-81a8-624582954bcf\",\r\n    \"amount\": 100000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_PATH}}/customer/balance/add",
+							"host": [
+								"{{URL_PATH}}"
+							],
+							"path": [
+								"customer",
+								"balance",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Payment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lcklEIjoiM2Y0NTNjNDEtY2YwZi00ZjZlLTgxYTgtNjI0NTgyOTU0YmNmIiwiZXhwIjoxNzE4MTIwMTc4fQ.kMsvQHw4LVR0Zo0b3s9mkNhtSi3bOI--FBnKI_a2eIU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customer_id\": \"3f453c41-cf0f-4f6e-81a8-624582954bcf\",\r\n    \"merchant_id\": \"0b942342-7927-4f98-bf0f-9b4ca038e91c\",\r\n    \"amount\": 50000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_PATH}}/customers/payment/pay",
+							"host": [
+								"{{URL_PATH}}"
+							],
+							"path": [
+								"customers",
+								"payment",
+								"pay"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "merchant",
+			"item": [
+				{
+					"name": "Create Merchant",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lcklEIjoiM2Y0NTNjNDEtY2YwZi00ZjZlLTgxYTgtNjI0NTgyOTU0YmNmIiwiZXhwIjoxNzE4MTIwMTc4fQ.kMsvQHw4LVR0Zo0b3s9mkNhtSi3bOI--FBnKI_a2eIU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Warung Makan Bahari\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_PATH}}/merchants",
+							"host": [
+								"{{URL_PATH}}"
+							],
+							"path": [
+								"merchants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Merchant By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lcklEIjoiM2Y0NTNjNDEtY2YwZi00ZjZlLTgxYTgtNjI0NTgyOTU0YmNmIiwiZXhwIjoxNzE4MTIwMTc4fQ.kMsvQHw4LVR0Zo0b3s9mkNhtSi3bOI--FBnKI_a2eIU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_PATH}}/merchants/0b942342-7927-4f98-bf0f-9b4ca038e91c",
+							"host": [
+								"{{URL_PATH}}"
+							],
+							"path": [
+								"merchants",
+								"0b942342-7927-4f98-bf0f-9b4ca038e91c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Merchant",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lcklEIjoiM2Y0NTNjNDEtY2YwZi00ZjZlLTgxYTgtNjI0NTgyOTU0YmNmIiwiZXhwIjoxNzE4MTIwMTc4fQ.kMsvQHw4LVR0Zo0b3s9mkNhtSi3bOI--FBnKI_a2eIU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL_PATH}}/merchants/0b942342-7927-4f98-bf0f-9b4ca038e91c",
+							"host": [
+								"{{URL_PATH}}"
+							],
+							"path": [
+								"merchants",
+								"0b942342-7927-4f98-bf0f-9b4ca038e91c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
